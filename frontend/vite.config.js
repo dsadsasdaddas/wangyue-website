@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/wangyue-website/', // GitHub Pages 部署路径
+  base: process.env.NODE_ENV === 'production' ? '/wangyue-website/' : '/',
   server: {
     port: 3000,
     proxy: {
@@ -12,5 +12,9 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false
   }
 })
