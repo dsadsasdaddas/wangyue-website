@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王越 - 温州大学学生个人网站</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            color: #333;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .content {
+            text-align: left;
+            margin: 30px 0;
+            line-height: 1.6;
+            color: #444;
+        }
+        .highlight {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .skill {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .contact {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .contact a:hover {
+            background: #667eea;
+            color: white;
+        }
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="gradient-text">王越</span></h1>
+        <div class="subtitle">温州大学 · 计算机科学专业学生</div>
+        
+        <div class="content">
+            <p>你好！我是温州大学计算机科学专业的学生，专注于前端开发和用户体验设计。</p>
+            
+            <div class="highlight">
+                <strong>🎓 教育背景：</strong><br>
+                温州大学计算机科学专业 (2022-2026)<br>
+                主修课程：数据结构、算法、Web开发、数据库系统
+            </div>
+            
+            <div class="highlight">
+                <strong>💼 项目经验：</strong><br>
+                • 智能课程管理系统 - 为温州大学开发的课程管理平台<br>
+                • 温州美食地图 - 基于地理位置的美食推荐应用
+            </div>
+            
+            <div class="highlight">
+                <strong>🛠️ 技术技能：</strong>
+                <div class="skills">
+                    <span class="skill">Vue.js</span>
+                    <span class="skill">React</span>
+                    <span class="skill">TypeScript</span>
+                    <span class="skill">Node.js</span>
+                    <span class="skill">MySQL</span>
+                    <span class="skill">Tailwind CSS</span>
+                    <span class="skill">Git</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <p><strong>📞 联系我：</strong></p>
+            <a href="mailto:wangyue@wzu.edu.cn">发送邮件</a>
+            <a href="https://github.com/wangyue">GitHub</a>
+            <a href="https://linkedin.com/in/wangyue">LinkedIn</a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 王越 · 温州大学学生个人网站</p>
+            <p>网站已成功部署到 GitHub Pages！</p>
+        </div>
+    </div>
+    
+    <script>
+        // 添加简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const skills = document.querySelectorAll('.skill');
+            skills.forEach((skill, index) => {
+                skill.style.animationDelay = `${index * 0.1}s`;
+                skill.style.opacity = '0';
+                skill.style.transform = 'translateY(10px)';
+                skill.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    skill.style.opacity = '1';
+                    skill.style.transform = 'translateY(0)';
+                }, 500 + index * 100);
+            });
+            
+            // 联系按钮点击效果
+            const contactLinks = document.querySelectorAll('.contact a');
+            contactLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

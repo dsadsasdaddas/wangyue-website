@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王越 - 温州大学学生个人网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .apple-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .fade-in { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-900">
+                    王越<span class="text-blue-600">.</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition">首页</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition">关于</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition">项目</a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600 transition">技能</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">联系</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section id="home" class="pt-24 pb-16 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                        你好，我是
+                        <span class="text-transparent bg-clip-text apple-gradient">王越</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        温州大学计算机科学专业学生，专注于前端开发与用户体验设计。
+                        热爱技术创新，致力于打造优雅、高效的数字化解决方案。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition">查看项目</a>
+                        <a href="#contact" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition">联系我</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
+                            <div class="text-6xl md:text-8xl text-blue-600 font-bold">WY</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto max-w-6xl px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">关于我</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-6">王越 · 温州大学</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我是温州大学计算机科学专业的一名学生，对前端开发和用户体验设计充满热情。
+                        我相信技术应该服务于人，致力于创造既美观又实用的数字产品。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600">🎓</span>
+                            </div>
+                            <div>
+                                <div class="font-medium text-gray-900">温州大学</div>
+                                <div class="text-gray-500">计算机科学专业 · 2022-2026</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-green-600">📍</span>
+                            </div>
+                            <div>
+                                <div class="font-medium text-gray-900">温州，浙江</div>
+                                <div class="text-gray-500">中国 · 家乡</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 card-hover fade-in">
+                    <h3 class="text-2xl font-bold mb-6">教育背景</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <div class="font-bold text-gray-900">计算机科学学士</div>
+                            <div class="text-gray-600">温州大学 · 2022-2026</div>
+                            <div class="text-gray-500 text-sm mt-1">主修课程：数据结构、算法、Web开发、数据库系统</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目 -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto max-w-6xl px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">精选项目</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="text-sm text-blue-600 font-medium mb-2">校园项目</div>
+                    <h3 class="text-2xl font-bold mb-3">智能课程管理系统</h3>
+                    <p class="text-gray-600 mb-4">为温州大学开发的课程管理平台，支持课程安排、作业提交、成绩查询等功能。</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Vue.js</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Node.js</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">MySQL</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in" style="animation-delay: 0.1s">
+                    <div class="text-sm text-purple-600 font-medium mb-2">个人项目</div>
+                    <h3 class="text-2xl font-bold mb-3">温州美食地图</h3>
+                    <p class="text-gray-600 mb-4">基于地理位置的美食推荐应用，展示温州特色美食文化与餐厅信息。</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">React</span>
+                        <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">地图API</span>
+                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto max-w-6xl px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">技术技能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center fade-in">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold mb-3">前端开发</h3>
+                    <p class="text-gray-600">Vue.js, React, TypeScript, Tailwind CSS, Vite</p>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.1s">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold mb-3">后端开发</h3>
+                    <p class="text-gray-600">Node.js, Express, MySQL, REST API</p>
+                </div>
+                <div class="text-center fade-in" style="animation-delay: 0.2s">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-bold mb-3">开发工具</h3>
+                    <p class="text-gray-600">Git, Docker, VS Code, Figma</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto max-w-6xl px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">联系我</h2>
+            <div class="max-w-2xl mx-auto text-center">
+                <p class="text-gray-600 mb-8">如果你对我的项目感兴趣，或者想讨论技术合作，欢迎联系我！</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="mailto:wangyue@wzu.edu.cn" class="text-blue-600 hover:text-blue-800 transition">📧 Email</a>
+                    <a href="https://github.com/wangyue" class="text-gray-700 hover:text-black transition">🐙 GitHub</a>
+                    <a href="https://linkedin.com/in/wangyue" class="text-blue-700 hover:text-blue-900 transition">💼 LinkedIn</a>
+                </div>
+                <p class="text-gray-500">温州大学 · 计算机科学专业</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-2xl font-bold mb-4">王越</div>
+            <p class="text-gray-400 mb-6">温州大学学生 · 个人展示网站</p>
+            <p class="text-gray-500 text-sm">© 2024 王越. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
