@@ -1,19 +1,27 @@
-name: Deploy Website
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: '20'
@@ -21,40 +29,30 @@ jobs:
         cache-dependency-path: frontend/package-lock.json
       
     - name: Install dependencies
-      run: |
-        cd frontend
-        npm install
+      run: cd frontend && npm install
       
-    - name: Build frontend
+    - name: Build for GitHub Pages
       run: |
         cd frontend
+        # 临时修改 base 为 GitHub Pages 路径
+        sed -i "s|base: '/'|base: '/wangyue-website/'|" vite.config.js
         npm run build
       
-    - name: Deploy to server
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        source: "frontend/dist/*"
-        target: "/tmp/website-deploy"
-        strip_components: 2
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
       
-    - name: Update web server
-      uses: appleboy/ssh-action@v1.0.0
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          sudo rm -rf /var/www/html/*
-          sudo cp -r /tmp/website-deploy/dist/* /var/www/html/
-          sudo chown -R www-data:www-data /var/www/html
-          rm -rf /tmp/website-deploy
-      
+        path: frontend/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./frontend/dist
-        publish_branch: gh-pages
+      id: deployment
+      uses: actions/deploy-pages@v4
